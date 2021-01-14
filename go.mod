@@ -1,4 +1,4 @@
-module github.com/dx-oss/go-yaml.v2
+module github.com/dx-oss/go-yaml
 
 go 1.15
 
