@@ -15,6 +15,8 @@ import (
 	"sync"
 )
 
+var ForceOmitEmpty = false
+
 // MapSlice encodes and decodes as a YAML map.
 // The order of keys is preserved when encoding and decoding.
 type MapSlice []MapItem
@@ -351,6 +353,10 @@ func getStructInfo(st reflect.Type) (*structInfo, error) {
 				}
 			}
 			tag = fields[0]
+		}
+		
+		if ForceOmitEmpty {
+			info.OmitEmpty = true	
 		}
 
 		if inline {
